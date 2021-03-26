@@ -11,7 +11,6 @@ def solution(answers):
     res = []
     for i in range(3):
         cnt = 0
-        idx = 0
         for j in range(len(answers)):
             if answers[j] == peoples[i][j % len(peoples[i])]:
                 cnt += 1
