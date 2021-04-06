@@ -6,6 +6,9 @@
 # 근데 최대 10억 최소 1로 잡아도 정답 나옴
 # Worst case를 계속적으로 탐색하는 듯함
 
+from collections import deque
+
+
 def solution(n, times):
     times.sort()
 
@@ -30,3 +33,4 @@ def solution(n, times):
             smallest = mid + 1
 
     return answer
+
