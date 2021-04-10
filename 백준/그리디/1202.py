@@ -22,7 +22,7 @@ def sol():
     b.sort()
 
     res = 0
-    tmp_jew = []
+    tmp_jew = []  # heap
     # 가방을 기준으로 찾는다.
     for x in b:
         # 가방의 무게를 만족하는 보석들을 힙에 넣기 -> o(1)
