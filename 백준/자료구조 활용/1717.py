@@ -12,11 +12,12 @@ def get_parent(x):
     parent[x] = p
     return p
 
+# 합집합 만들기
+
 
 def union(x, y):
     x = get_parent(x)
     y = get_parent(y)
-
     if x != y:
         parent[y] = x
 
@@ -40,6 +41,7 @@ for _ in range(m):
         union(x, y)
 
     if z:
+        # 부모가 같으면 같은집합임
         if find_parent(x) == find_parent(y):
             print('YES')
         else:
