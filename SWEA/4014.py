@@ -20,7 +20,7 @@ def possible(arr, x):
                     for j in range(i, i+x):  # 앞을 본다
                         if arr[j] != arr[i]:
                             return 0
-                    cnt = -x+1
+                    cnt = -x+1  # 개어렵네
         elif arr[i] > bef:  # 오르막
             if arr[i]-bef > 1:
                 return 0
@@ -29,6 +29,7 @@ def possible(arr, x):
                     cnt = 1
                 else:
                     return 0
+        # 평지
         else:
             cnt += 1
         bef = arr[i]
@@ -41,12 +42,16 @@ for test in range(T):
     for i in range(N):
         mat.append(list(map(int, input().split())))
     sol = 0
+    # 가로
     for i in mat:
         sol += possible(i, X)
+    # 세로
     for i in zip(*mat):  # 전치행렬
         sol += possible(i, X)
     print('#%d' % (test+1), sol)
-    # 내코드
+
+
+# 내코드
 
 
 # 17:00
