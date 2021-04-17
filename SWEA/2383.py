@@ -1,5 +1,5 @@
 # DFS/BFS 완전탐색
-# re try
+# re try gg
 
 import copy
 import sys

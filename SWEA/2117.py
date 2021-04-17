@@ -56,6 +56,7 @@ def sol():
         k = 1
 
         # 커버할 수 있는 k까지 돌림 -> 시간 줄이기
+        # 마구잡이로 k를 잡으면 안된다.
         while t_home*m-(k*k+(k-1)*(k-1)) >= 0:
             for i in range(n):
                 for j in range(n):
