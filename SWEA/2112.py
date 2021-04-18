@@ -1,6 +1,7 @@
-# DFS
-# 40/50만 맞음 대체 어디서 더 가지치기 해야되냐
-# 담에 풀 때 필름 전체를 복사하는 것이 아닌 세로줄만 복사해보자
+# copy.deepcopy()는 순수한 python 모듈이다. 거의 0.1초 이상을 잡아먹으니 [ layer[:] for layer in film ] 구문을 기억하자.
+# 입력이 str이므로 str로 처리해야 하는 부분이 있다면 습관적으로 입력을 받을 때 map(int, ...)부분을 사용하지 말자.
+# tuple이 list보다 빠르다.
+
 
 import copy
 from collections import deque
@@ -32,7 +33,6 @@ def sol():
         # 가지치기
         if zero_tot > k or one_tot > k:
             return
-        # 가지치기 2
         if zero_tot+one_tot >= min_cnt:
             return
         if L == d:
@@ -46,7 +46,7 @@ def sol():
             return
 
         else:
-            tmp_film = copy.deepcopy(film)
+            tmp_film = [layer[:] for layer in film]
 
             # 안 바뀌는 경우
             dfs(L + 1, tmp_film, zero_tot, one_tot)
@@ -66,7 +66,7 @@ def sol():
     for test_case in range(1, t+1):
         d, w, k = map(int, input().split())
 
-        film = [list(map(int, input().split())) for _ in range(d)]
+        film = [tuple(map(int, input().split())) for _ in range(d)]
 
         min_cnt = 1e9
         success_cnt = 0
