@@ -13,8 +13,8 @@ input = sys.stdin.readline
 
 
 def sol():
-    target = [list(map(int, input().strip())) for _ in range(4)]
     order_cnt = int(input())
+    target = [list(map(int, input().strip())) for _ in range(4)]
     orders = []
     for _ in range(order_cnt):
         target_num, dir = map(int, input().split())
