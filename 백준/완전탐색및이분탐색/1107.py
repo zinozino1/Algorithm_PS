@@ -1,3 +1,5 @@
+# 골드4-리모컨-완전탐색
+
 
 def sol():
     global min_cnt
