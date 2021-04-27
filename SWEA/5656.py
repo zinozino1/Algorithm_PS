@@ -75,6 +75,7 @@ def sol():
                 nx = x + dx[s]
                 ny = y + dy[s]
                 # 연쇄적 파괴(재귀) 벽돌에 있는 숫자만큼 재귀들어감
+                # 모든 DFS 트리에서 tmp_board를 공유하므로 카피 안해도 된다.
                 for l in range(tmp_board[x][y] - 1):
                     if 0 <= nx <= h - 1 and 0 <= ny <= w - 1 and check[nx][ny] == 0:
                         check[nx][ny] = 1

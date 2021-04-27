@@ -97,6 +97,7 @@ def sol():
 
                             # 블랙홀
                             elif grid[pos_x][pos_y] == -1:
+
                                 break
 
                             # 블럭
