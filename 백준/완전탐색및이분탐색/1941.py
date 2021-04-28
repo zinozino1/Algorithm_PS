@@ -1,3 +1,5 @@
+# 골드3-소문난칠공주-완전탐색
+
 import itertools as it
 from collections import deque
 
