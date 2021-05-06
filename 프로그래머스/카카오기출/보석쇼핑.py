@@ -34,15 +34,19 @@ def solution(gems):
 def solution2(gems):
     # 보석 종류
     size = len(set(gems))
+    # 구간별 보석 정의할 딕셔너리
     dic = {gems[0]: 1}
+    # 답
     ans = [1, len(gems)]
     start, end = 0, 0
     while(start < len(gems) and end < len(gems)):
+        # 끝점 갱신 -> 구간에 속한 보석 개수가 원본 보석 종류 개수와 같으면 끝점 이동
         if len(dic) != size:
             end += 1
             if end >= len(gems):
                 break
             dic[gems[end]] = dic.get(gems[end], 0) + 1
+        # 시작점 갱신
         else:
             if end - start < ans[1] - ans[0]:
                 ans = [start + 1, end + 1]
