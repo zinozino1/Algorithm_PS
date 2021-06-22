@@ -1,3 +1,4 @@
+# 그리디 활용
 def solution(d, budget):
     d.sort()
     acc = 0
