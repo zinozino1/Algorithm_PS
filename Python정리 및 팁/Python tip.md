@@ -39,3 +39,22 @@ for pair in zip(arr1, arr2):
 
 
 ```
+
+3. 전치행렬 경우의수 구하는 법
+
+```py
+
+arr = [[1, 2, 3, 4],
+       [7, 8, 9, 10],
+       [13, 14, 15, 16]]
+
+candi = []
+for i in range(1, len(arr) + 1):
+  for tmp in it.combinations(range(len(arr[0])), i):
+    candi.append(tmp)
+
+for cand in candi:
+  tmp = [[a[key] for key in cand] for a in arr]
+  print(tmp)
+
+```
