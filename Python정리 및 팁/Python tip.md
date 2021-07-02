@@ -1,4 +1,4 @@
-1. math 라이브러리
+# math 라이브러리
 
 ```py
 import math
@@ -12,7 +12,7 @@ import math
 4) 최대공약수 math.gcd(a,b)
 ```
 
-2. 내장함수 zip
+# 내장함수 zip
 
 ```py
 
@@ -40,7 +40,7 @@ for pair in zip(arr1, arr2):
 
 ```
 
-3. 전치행렬 경우의수 구하는 법
+# 전치행렬 경우의수 구하는 법
 
 ```py
 
@@ -56,5 +56,69 @@ for i in range(1, len(arr) + 1):
 for cand in candi:
   tmp = [[a[key] for key in cand] for a in arr]
   print(tmp)
+
+```
+
+# 리스트 다루기 시리즈
+
+## 리스트 다루기1 (이차원 배열 일부 빼내기)
+
+```py
+arr = [
+  [1,2,3,4,5],
+  [5,6,7,8,9],
+  [9,10,11,12,13],
+  [14,15,16,17,18]
+]
+
+n,m = 3,2 # 행,열
+for i in range(len(arr)-n+1):
+  for j in range(len(arr[0])-m+1):
+    res = [row[j:j+m] for row in arr[i:i+n]] # row 먼저 뽑고 거기서 col 뽑는다.
+    for r in res:
+      print(r)
+    print()
+```
+
+## 리스트 다루기2 (이차원 배열 90도 회전 시키기)
+
+```py
+arr = [
+  [1,2,3],
+  [6,7,8],
+  [11,12,13],
+]
+row_len,col_len = len(arr), len(arr[0])
+result = [[0]*col_len for _ in range(row_len)]
+for i in range(row_len):
+  for j in range(col_len):
+    result[j][row_len-i-1] = arr[i][j]
+
+for r in result:
+  print(r)
+
+
+```
+
+## 리스트 다루기3 (이차원 배열 세로로 좌표이동)
+
+## 리스트 다루기4 (이차원 배열 복사)
+
+## 리스트 다루기5 (이차원 배열 소용돌이 이동)
+
+## 리스트 다루기6 (이차원 배열 외곽이동)
+
+## 리스트 다루기7 (이차원 배열 떨어뜨리기)
+
+# 문자열 다루기 시리즈
+
+## 문자열 다루기1 (replace)
+
+```py
+# 활용
+def shap_to_lower(s):
+    s = s.replace('C#', 'c').replace('D#', 'd').replace(
+        'F#', 'f').replace('G#', 'g').replace('A#', 'a')
+    return s
 
 ```
