@@ -28,7 +28,7 @@ def sol():
     time = 0
     while time < t:
 
-        # 미세먼지 확산
+        # 미세먼지 확산!
         dusts = []
         for i in range(r):
             for j in range(c):
