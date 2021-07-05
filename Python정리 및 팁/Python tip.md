@@ -122,3 +122,15 @@ def shap_to_lower(s):
     return s
 
 ```
+
+## 문자열 다루기2 (슬라이스)
+
+```py
+
+s = "abcde"
+s[::-1] # edcba
+s[:-3] # ab
+s[-3:] # cde
+s[::2] # ace
+
+```
