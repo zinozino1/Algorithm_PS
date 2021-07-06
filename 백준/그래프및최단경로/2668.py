@@ -57,3 +57,40 @@ print(cycle.count(1))
 for i, c in enumerate(cycle):
     if c == 1:
         print(i+1)
+
+# 9466 풀고 다시 푼 것
+
+n = int(input())
+target = [int(input()) for _ in range(n)]
+visited = [0]*n
+cycle_cnt = 0
+cycle_set = set()
+
+adj = [[] for _ in range(n)]
+for i in range(n):
+    adj[i].append(target[i]-1)
+
+
+def dfs(v):
+    global cycle_cnt
+    visited[v] = 1
+    connected = adj[v]
+    cycle.append(v)
+    for s in range(len(connected)):
+        if visited[connected[s]] == 0:
+            dfs(connected[s])
+        else:
+            if connected[s] in cycle:
+                cycle_cnt += len(cycle[cycle.index(connected[s]):])
+                for c in cycle[cycle.index(connected[s]):]:
+                    cycle_set.add(c+1)
+
+
+for i in range(n):
+    if visited[i] == 0:
+        cycle = []
+        dfs(i)
+
+print(cycle_cnt)
+for s in sorted(list(cycle_set)):
+    print(s)
