@@ -7,3 +7,9 @@
 from collections import defaultdict
 
 dic = defaultdict(list)
+
+
+# 2. 문자열 개별 정렬
+a = ["cde", "cfc", "abc"]
+print(sorted(a, key=lambda x: (x[0], x[-1])))
+# => ["abc", "cfc", "cde"]
