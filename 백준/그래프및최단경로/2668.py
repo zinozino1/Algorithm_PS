@@ -1,7 +1,7 @@
 # 골드5-숫자고르기-그래프 및 DFS
 # 완전탐색 DFS로 풀다가 n=100인 것을 보고 그래프 cycle로 풀이 변경
 # 사이클 노드를 확인하면 된다
-# 무조건 다시 풀어보기
+# 무조건 다시 풀어보기..
 
 n = int(input())
 target = [int(input()) for _ in range(n)]
