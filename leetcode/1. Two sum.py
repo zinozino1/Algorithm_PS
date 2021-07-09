@@ -16,7 +16,7 @@ class Solution:
                     lt += 1
 
 
-# 최적화 풀이 -> 타겟에서 첫번째 값을 뺀 값을 딕셔너리에서 찾기 o(n)
+# 최적화 풀이 -> 타겟에서 첫번째 값을 뺀 값을 딕셔너리에서 찾기. o(n)
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
