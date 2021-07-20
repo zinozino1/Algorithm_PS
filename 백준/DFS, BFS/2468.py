@@ -1,5 +1,6 @@
 # 실버1-안전영역
 # BFS
+# 풀이시간 : 17분
 
 import sys
 from collections import deque
