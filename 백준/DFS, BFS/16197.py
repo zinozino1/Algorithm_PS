@@ -105,7 +105,8 @@ if not success_flag:
 
 # bfs 내부에서 for _ in range(len(q)): 를 사용하지 않는다면
 # level의 개념을 활용할 수 없게 된다. -> 하나하나의 popleft가 level이
-# 되어버리기 때문에 depth를 이용할 수 없음
+# 되어버리기 때문에 depth를 이용할 수 없음 따라서 q의 원소 안에 cnt라는 명시적 레벨을 넣어줘야함
+# flag를 통해 bfs를 끝내는 것 보다 함수를 선언하고 return을 활용하자
 
 
 n, m = map(int, input().split())
