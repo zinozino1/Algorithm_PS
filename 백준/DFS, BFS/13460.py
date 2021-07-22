@@ -82,3 +82,99 @@ def sol():
 
 
 sol()
+
+
+# 두번째 푼 코드
+
+n, m = map(int, input().split())
+grid = [list(input().strip()) for _ in range(n)]
+
+# 상하좌우
+dx = [-1, 1, 0, 0]
+dy = [0, 0, -1, 1]
+
+rx, ry, bx, by = 0, 0, 0, 0
+targetx, targety = 0, 0
+
+for i in range(n):
+    for j in range(m):
+        if grid[i][j] == "R":
+            rx, ry = i, j
+        if grid[i][j] == "B":
+            bx, by = i, j
+        if grid[i][j] == "O":
+            targetx, targety = i, j
+
+check = set()
+check.add((rx, ry, bx, by))
+
+
+def move(data, di):
+    prx, pry, pbx, pby, nql = data
+    nrx, nry, nbx, nby, nql = data
+    redhole, bluehole = False, False
+    while grid[nrx][nry] != "#":
+        nrx += dx[di]
+        nry += dy[di]
+        if nrx == targetx and nry == targety:
+            redhole = True
+            break
+    else:
+        nrx -= dx[di]
+        nry -= dy[di]
+    while grid[nbx][nby] != "#":
+        nbx += dx[di]
+        nby += dy[di]
+        if nbx == targetx and nby == targety:
+            bluehole = True
+            break
+    else:
+        nbx -= dx[di]
+        nby -= dy[di]
+    if redhole and bluehole:
+        return (targetx, targety, targetx, targety, nql)
+    if nrx == nbx and nry == nby:
+        # 상 하
+        if di == 0 or di == 1:
+            if abs(nrx-prx) > abs(nbx-pbx):
+                nrx -= dx[di]
+            else:
+                nbx -= dx[di]
+        # 좌 우
+        else:
+            if abs(nry-pry) > abs(nby-pby):
+                nry -= dy[di]
+            else:
+                nby -= dy[di]
+
+    return (nrx, nry, nbx, nby, nql)
+
+
+def bfs():
+    q = deque()
+    q.append((rx, ry, bx, by, 0))
+    level = 0
+    while q:
+        for _ in range(len(q)):
+            curr = q.popleft()
+
+            if level == 10:
+                return -1
+            for s in range(4):
+                nrx, nry, nbx, nby, nql = move(curr, s)
+                if nrx == targetx and nry == targety and nbx == targetx and nby == targety:
+                    continue
+                elif nrx == targetx and nry == targety:
+                    return nql+1
+                elif nbx == targetx and nby == targety:
+                    continue
+
+                if (nrx, nry, nbx, nby) not in check:
+
+                    check.add((nrx, nry, nbx, nby))
+                    q.append((nrx, nry, nbx, nby, nql+1))
+        level += 1
+    return -1
+
+
+print(bfs())
