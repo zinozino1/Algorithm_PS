@@ -1,0 +1,112 @@
+```js
+
+1. 정렬
+
+-> 기본 정렬 되지 않으므로 람다함수 넣어줘야함
+-> [3,2,1]
+-> arr.sort((a,b) => a-b)
+// 2차원 배열은 이렇게
+->[[1,2],[2,3],[2,1]]
+-> arr.sort((a,b) => a[0] === b[0] ? b[1]-a[1]:a[0]-b[0])
+
+let arr = [
+  { a: 100, b: 30 },
+  { a: 30, b: 30 },
+  { a: 19, b: 3333 },
+];
+let item = "b";
+console.log(arr);
+arr.sort((x, y) => (x.b === y.b ? x.a - y.a : x.b - y.b));
+
+2. Math 라이브러리
+
+-> Math.max Math.min -> 개별 값으로 인자가 들어가므로 전개연산자 사용해야함
+-> Math.max(...[1,2,3])
+
+// parseInt 말고 이것을 쓸 것
+-> Math.ceil : 올림
+-> Math.floor : 내림
+-> Math.round : 반올림
+
+3. 배열 초기화
+
+[0,0,0,0,...]
+-> Array.from({length:n}, ()=>0)
+[1,2,3,4,5,6]
+-> Array.from({length:n}, (v,i) => i)
+[{},{},{}...]
+-> Array.from({length:n}, () => {
+  return {}
+})
+[[], [], []...]
+-> Array.from({length:n}, () => new Array())
+
+4. for..of
+
+-> 이터러블 객체에 사용 가능
+-> string, arr, set, map...
+
+5. 배열 및 객체 복사
+
+let arr1 = [1,2,3]
+-> arr2 = [...arr1] or arr1.slice()
+
+let arr3 = [[1,2,3],[4,5,6]]
+-> arr4 = JSON.parse(JSON.stringify(arr3))
+
+let obj = {a:1}
+-> obj2 = Object.assign({}, obj) or {...obj}
+
+6. 문자열 특정 값 변경 -> String.prototype 메서드는 기본적으로 원본 변경 x
+
+let str = "ABCDEFFFFF"
+-> let tmp = str.replace(/F/g, "#")
+
+or 단순 반복문
+
+7. 문자열에서 문자 카운팅
+
+let tmp2 = str.split("F")
+-> let cnt = tmp2.length - 1
+
+8. 대문자, 소문자, 아스키코드
+
+let str = "ABCdacbasS"
+for (let s of str) {
+  console.log(s.charCodeAt()); // 아스키 코드
+
+  if (s === s.toUpperCase()) {
+    // 대문자
+    console.log("대문자", s);
+  } else if (s === s.toLowerCase()) {
+    // 소문자
+    console.log("소문자", s);
+  }
+  }
+
+9. 문자열을 숫자로 변경
+
+let str = "123"
+-> let num = parseInt(str)
+
+10. 문자열 슬라이싱
+
+let str = "123,456,789"
+-> let p1 = str.slice(0, 3)
+
+11. 배열 원소들 출력
+
+-> let arr = [1,2,3]
+# 123
+let a1 = arr.join("")
+# 1,2,3
+let a2 = arr.join(",")
+
+11. 배열 첫번쨰자리, 마지막자리 원소 삽입
+
+let arr = [1,2,3]
+arr.push(4) // 마지막 자리
+arr.unshift(0) // 첫번쨰 자리
+
+
+```
