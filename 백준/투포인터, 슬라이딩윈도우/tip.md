@@ -6,6 +6,26 @@
 
 2. 슬라이딩 윈도우는 구간이 정해져있을 때 사용 가능
 
+3. 투포인터 정석 오브 정석
+```
 
+```js
+function sol(m, arr) {
+  let lt = 0;
+  let rt = 0;
+  let sum = arr[lt];
+  let cnt = 0;
 
+  while (rt < arr.length) {
+    if (sum === m) {
+      cnt++;
+      sum -= arr[lt++];
+    } else if (sum > m) {
+      sum -= arr[lt++];
+    } else {
+      sum += arr[++rt];
+    }
+  }
+  return cnt;
+}
 ```
