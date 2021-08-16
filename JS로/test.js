@@ -1,12 +1,7 @@
-let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+let n1 = 2;
+let n2 = 3;
+let n3 = 7;
 
-let sum = Array.from({ length: arr.length }, () => 0);
-sum[0] = arr[0];
-for (let i = 1; i < arr.length; i++) {
-  sum[i] = sum[i - 1] + arr[i];
-}
-console.log(sum);
+let n4 = 11;
 
-// a-b 구간합
-
-console.log(sum[b] - sum[a - 1]);
+console.log(Math.round(n3 / 2));
