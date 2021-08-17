@@ -314,6 +314,15 @@ for (let s of str2) {
 
 console.log(res);
 
+// 정규표현식 이용 특정 문자 대치
+let str = "asdb advg$ af333 fasdf #@#%%@#$";
+
+console.log(str.replace(/[0-9]/g, "[]")); // 숫자 대치
+console.log(str.replace(/[a-zA-Z]/g, "=")); // 소문자, 대문자 대치
+console.log(str.replace(/[a-z]/g, "=")); // 소문자 대치
+console.log(str.replace(/[!@#$%]/g, "9")); // !@#$ 특수문자 대치
+
+
 
 
 

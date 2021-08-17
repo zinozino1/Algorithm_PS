@@ -1,7 +1,5 @@
-let n1 = 2;
-let n2 = 3;
-let n3 = 7;
+let str = "asdb advg$ af333 fasdf #@#%%@#$";
 
-let n4 = 11;
-
-console.log(Math.round(n3 / 2));
+console.log(str.replace(/[0-9]/g, "[]"));
+console.log(str.replace(/[a-zA-Z]/g, "="));
+console.log(str.replace(/[!@#$%]/g, "9"));
