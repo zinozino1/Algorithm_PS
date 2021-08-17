@@ -323,6 +323,13 @@ console.log(str.replace(/[a-z]/g, "=")); // 소문자 대치
 console.log(str.replace(/[!@#$%]/g, "9")); // !@#$ 특수문자 대치
 
 
+// 알파벳인지 숫자인지 -> 근데 이거 테스트할 떄마다 새롭게 정의해야댐
+let pattern = /[a-z]/g;
+console.log(pattern.test("a"));
+let pattern2 = /[0-9]/g;
+console.log(pattern.test("1"))
+
+
 
 
 

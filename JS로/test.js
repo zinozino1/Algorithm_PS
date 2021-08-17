@@ -1,5 +1,5 @@
-let str = "asdb advg$ af333 fasdf #@#%%@#$";
+let str = "asss";
+console.log(str.match(/[a-z]/g));
 
-console.log(str.replace(/[0-9]/g, "[]"));
-console.log(str.replace(/[a-zA-Z]/g, "="));
-console.log(str.replace(/[!@#$%]/g, "9"));
+let pattern = /[a-z]/g;
+console.log(pattern.test("a"));
