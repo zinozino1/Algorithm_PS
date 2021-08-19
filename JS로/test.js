@@ -1,5 +1,40 @@
-let str = "asss";
-console.log(str.match(/[a-z]/g));
+class Component {
+  $target;
+  $props;
 
-let pattern = /[a-z]/g;
-console.log(pattern.test("a"));
+  constructor({ $app, $target, $props }) {
+    this.$target = $target;
+    this.$props = $props;
+    this.setEvent();
+    $app.appendChild(this.$target);
+    this.render();
+  }
+
+  mounted() {}
+  setEvent() {}
+  setState(nextState) {}
+  templateBuilder() {
+    return ``;
+  }
+  render() {
+    this.$target.innerHTML = this.templateBuilder();
+  }
+}
+
+class App {
+  $target;
+  state;
+  constructor({ $target }) {
+    this.$target = $target;
+    this.setUp();
+    this.render();
+  }
+
+  setUp() {}
+  setState() {}
+  mounted() {}
+  render() {}
+
+  logic1() {}
+  logic2() {}
+}

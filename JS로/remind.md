@@ -99,7 +99,9 @@ let obj = {a:1}
 6. 문자열 특정 값 변경 -> String.prototype 메서드는 기본적으로 원본 변경 x
 
 let str = "ABCDEFFFFF"
--> let tmp = str.replace(/F/g, "#")
+-> let tmp = str.replace(/F/g, "#") // ABCDE#####
+-> let tmp2 = str.replace(/[a-zA-Z]/g, "#") // #########
+
 
 or 단순 반복문
 
@@ -255,7 +257,7 @@ console.log(arr.filter((v, i) => v > 3));
 console.log(arr.map((v, i) => v + 3));
 console.log(arr.every((v) => v > 1));
 console.log(arr.some((v) => v > 3));
-console.log(arr.reduce((a, v, i) => a + v));
+console.log(arr.reduce((a, v, i) => a + v), 0);
 
 
 
