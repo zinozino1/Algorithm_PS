@@ -1,40 +1,36 @@
-class Component {
-  $target;
-  $props;
+let str = "123abcA!@#.....%";
 
-  constructor({ $app, $target, $props }) {
-    this.$target = $target;
-    this.$props = $props;
-    this.setEvent();
-    $app.appendChild(this.$target);
-    this.render();
-  }
+// 1. 숫자를 변경
+let str2 = str;
+str2 = str2.replace(/[0-9]/g, "n");
+console.log(str2);
 
-  mounted() {}
-  setEvent() {}
-  setState(nextState) {}
-  templateBuilder() {
-    return ``;
-  }
-  render() {
-    this.$target.innerHTML = this.templateBuilder();
+// 2. 알파벳을 변경
+let str3 = str;
+str3 = str3.replace(/[a-zA-Z]/g, "=");
+console.log(str3);
+
+// 3. 특수문자를 제거
+let str4 = str;
+let alNum = "1234567890zxcvbnmlkjhgfdsaqwertyuiopAZXSDCVFGBNHJMKLPOIUYTREWQ";
+let tmp = "";
+for (let s of str4) {
+  if (alNum.indexOf(s) !== -1) {
+    tmp += s;
   }
 }
+console.log(tmp);
 
-class App {
-  $target;
-  state;
-  constructor({ $target }) {
-    this.$target = $target;
-    this.setUp();
-    this.render();
-  }
-
-  setUp() {}
-  setState() {}
-  mounted() {}
-  render() {}
-
-  logic1() {}
-  logic2() {}
+// 4. "." 중복 제거
+let str5 = str;
+while (str5.indexOf("..") !== -1) {
+  str5 = str5.replace("..", ".");
 }
+console.log(str5);
+
+// 5. 특정 문자를 특정 문자로 치환
+let str6 = str;
+let target = "%";
+let pattern = new RegExp(`${target}`, "g");
+str6 = str6.replace(pattern, "0000");
+console.log(str6);
