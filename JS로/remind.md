@@ -332,6 +332,16 @@ let pattern2 = /[0-9]/g;
 console.log(pattern.test("1"))
 
 
+// 정규 표현식 변수 일반화 -> 하나만 바꿀 때 유용
+let str = "abcdasdf";
+let target = "a"
+
+let pattern = new RegExp(`${target}`, "g");
+str = str.replace(pattern, "1");
+console.log(str);
+
+
+
 
 
 
