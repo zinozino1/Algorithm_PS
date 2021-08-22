@@ -59,3 +59,111 @@ function solution(H) {
 
         return res
 ```
+
+```js
+
+3. 스택, 큐 구현
+
+class Stack {
+  constructor() {
+    this.arr = [];
+    this.top = -1
+  }
+  push(val) {
+    this.top++;
+    this.arr[this.top] = val
+  }
+
+  pop() {
+    if(this.top > -1){
+      return this.arr[this.top--]
+    }
+    return null
+  }
+
+  empty() {
+    return this.arr.length === 0;
+  }
+
+  peek() {
+    return this.arr[this.top]
+  }
+}
+
+class Queue {
+  constructor() {
+    this.arr = [];
+  }
+  enqueue(val) {
+    this.arr.push(val);
+  }
+  dequeue() {
+    return this.arr.shift();
+  }
+  empty() {
+    return this.arr[this.arr.length - 1];
+  }
+  peek() {
+    return this.arr[0];
+  }
+}
+
+
+```
+
+```js
+
+4. 스택 두개로 큐 하나 만들기
+
+class StackToQueue {
+  constructor() {
+    this.stack1 = [];
+    this.stack2 = [];
+  }
+  enqueue(val) {
+    this.stack1.push(val);
+  }
+
+  dequeue() {
+    if (this.stack2.length === 0) {
+      while (this.stack1.length) {
+        this.stack2.push(this.stack1.pop());
+      }
+    }
+    return this.stack2.pop();
+  }
+  size() {
+    return this.stack1.length + this.stack2.length;
+  }
+}
+
+
+
+
+```
+
+```js
+
+5. 큐 하나로 스택 만들기
+
+
+class QueueToStack {
+  constructor() {
+    this.q = [];
+  }
+  push(val) {
+    for (let i = 0; i < this.q.length - 1; i++) {
+      this.q.push(this.q.unshift());
+    }
+  }
+  pop() {
+    return this.q.shift();
+  }
+  peek() {
+    return this.arr[0];
+  }
+}
+
+
+
+```
