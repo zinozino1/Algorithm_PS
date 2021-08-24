@@ -1,3 +1,8 @@
+# 골드5 - 줄세우기
+# dp
+
+# 전형적인 LIS 문제이다..
+
 n = int(input())
 target = [int(input()) for _ in range(n)]
 
