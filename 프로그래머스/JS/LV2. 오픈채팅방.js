@@ -1,3 +1,5 @@
+// 문자열 + 해시
+
 function solution(record) {
   let ans = [];
 
