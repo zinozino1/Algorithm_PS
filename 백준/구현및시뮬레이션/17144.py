@@ -4,7 +4,6 @@ import copy
 from collections import deque
 import itertools as it
 
-# 15:36 - 17:10 아 왤케 오래걸리지
 
 
 def sol():
