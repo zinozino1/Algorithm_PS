@@ -29,3 +29,36 @@ def solution(user_id, banned_id):
             cnt += 1
 
     return len(s)
+
+
+def solution2(user_id, banned_id):
+
+    ans = set()
+
+    for tmp in it.permutations(user_id, len(banned_id)):
+
+        banned = []
+        check = [0]*len(banned_id)
+        for ban in banned_id:
+
+            outer_flag = False
+            for i, t in enumerate(tmp):
+                if len(t) != len(ban):
+                    continue  # 길이 다를 경우
+                if check[i] == 1:
+                    continue  # 이미 체크 했다면
+                for j in range(len(t)):
+                    if ban[j] != t[j]:
+                        if ban[j] == "*":
+                            pass
+                        else:
+                            break
+                else:
+                    check[i] = 1
+                    banned.append(t)
+                    break
+
+        if len(banned) == len(banned_id):
+            ans.add(tuple(sorted(banned)))
+
+    return len(ans)
