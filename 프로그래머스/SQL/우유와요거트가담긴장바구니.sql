@@ -1,0 +1,8 @@
+SELECT DISTINCT CART_ID
+FROM CART_PRODUCTS
+WHERE NAME = "Milk" AND CART_ID IN ( # 밀크를 구매한 사람의 아이디가 요거트를 구매한 사람의 아이디와 같으면
+    SELECT CART_ID
+    FROM CART_PRODUCTS
+    WHERE NAME = "Yogurt"
+)
+ORDER BY CART_ID
