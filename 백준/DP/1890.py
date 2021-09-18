@@ -9,6 +9,10 @@
 # dp[i][j] == 1이어야지 갈 수 있는 곳이기 때문
 
 
+# 오른쪽 아래쪽으로만 갈 수 있기 때문에 dp로 풀 수 있다.
+# 만약 4방향이면 dp가 불가하고 DFS + dp로 풀어야한다.
+
+
 n = int(input())
 grid = [list(map(int, input().split())) for _ in range(n)]
 dp = [[0]*n for _ in range(n)]
