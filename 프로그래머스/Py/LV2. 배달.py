@@ -1,5 +1,7 @@
 # 플로이드 워셜
 
+# O(n^3)
+
 def solution(N, road, K):
     INF = int(1e9)
     graph = [[INF] * (N+1) for _ in range(N+1)]
