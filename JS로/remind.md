@@ -6,12 +6,20 @@
 
 -> 기본 정렬 되지 않으므로 람다함수 넣어줘야함
 -> [3,2,1]
--> arr.sort((a,b) => a-b)
+-> arr.sort((a,b) => a-b) // 오름차순
+-> arr.sort((a,b) => b-a) // 내림차순
+
 // 2차원 배열은 이렇게
 ->[[1,2],[2,3],[2,1]]
--> arr.sort((a,b) => a[0] === b[0] ? b[1]-a[1]:a[0]-b[0])
--> 0번 인덱스 기준 정렬  + 0번이 같다면 1번 다시 기준
 
+-> arr.sort((a,b) => (정렬할 자리 ? 반대쪽 자리 : 정렬할 자리))
+
+// 0번째 자리 기준 정렬, 오름차순
+-> arr.sort((a, b) => (a[0] === b[0] ? a[1] - b[1] : a[0] - b[0]));
+// 1번째 자리 기준 정렬, 내림차순
+-> arr.sort((a, b) => (a[1] === b[1] ? b[0] - a[0] : b[1] - a[1]));
+
+// 객체배열도 동일하게 작동
 let arr = [
   { a: 100, b: 30 },
   { a: 30, b: 30 },
@@ -93,7 +101,17 @@ let obj = {a:1}
 
 
 
+5.5 문자열 자주 쓰이는 메서드
 
+// String.prototype 메서드는 모두 원본 변경 x tmp를 써야함.
+
+let str = "abc";
+
+str.replace(정규식, 바꿀문자);
+str.split(구분할문자);
+str.slice(자를시작인덱스, 자를끝인덱스(1더해짐));
+str.charAt(인덱스);
+str.indexOf(특정문자나문자열);
 
 
 6. 문자열 특정 값 변경 -> String.prototype 메서드는 기본적으로 원본 변경 x
@@ -154,6 +172,25 @@ let str = "123,456,789"
 
 
 
+10.5 배열 자주 사용하는 메서드
+
+// 원본 변경
+arr.push()
+arr.pop()
+arr.unshift()
+arr.shift()
+arr.sort()
+arr.reverse()
+
+// 원본 변경 x
+let res = arr.join(str) // 문자열로
+let res = arr.slice(firstIndex,lastIndex) // 배열 자르기
+let res = arr.includes(elem) // 원소 포함하는지 - boolean
+let res = arr.find(cb) // 콜백함수 만족하는 원소 찾기
+let res = arr.indexOf(elem) // 원소 인덱스 위치 -- String 메서드 indexOf도 사용하기 위해 이걸로 통일
+
+
+
 
 
 11. 배열 원소들 출력
@@ -162,7 +199,7 @@ let str = "123,456,789"
 # 123
 let a1 = arr.join("")
 # 1,2,3
-let a2 = arr.join(",")
+let a2 = arr.join(",") // === arr.toString()
 
 
 
@@ -182,6 +219,15 @@ arr.unshift(0) // 첫번쨰 자리
 
 let obj = {} 으로 가능
 
+// 테크닉
+let arr = [1, 2, 3, 1, 2, 2, 2, 3, 1, 4, 6];
+
+let obj = {};
+
+for (let a of arr) {
+    obj[a] = ++obj[a] || 1;
+}
+
 
 
 
@@ -193,8 +239,10 @@ let obj = {} 으로 가능
 
 14. 문자열 -> 배열
 let str = "abc"
-let arr = Array.from(str)
+let arr = Array.from(str) // 문자배열
 
+let str2 = "123"
+let arr2 = Array.from(str, (s) => parseInt(s)); // 숫자배열
 
 
 
@@ -287,10 +335,12 @@ let char = "a";
 let newStr2 = str.replace(char, "1"); // 맨 앞 하나밖에 안바뀜
 console.log(newStr2);
 
+
+// 정규식 쓰지 않고 모든 문자 대체하는 방법
 let char2 = "b";
 let str2 = "aaaaaaaaa";
 
-while (str2.indexOf("a") !== -1) { // 포함되어 있지 않다를 표현
+while (str2.indexOf("a") !== -1) { // 포함되어 있지 않다를 표현 - 상당히 중요한 테크닉
   str2 = str2.replace("a", char2);
 }
 console.log(str2);
@@ -386,7 +436,7 @@ console.log(str6);
 
 
 
-22. 문자열, 배열 비어있는지 체크
+22. 문자열, 배열 비어있는지 체크 -> length로 통일하자.
 
 
 let str = "";
@@ -446,6 +496,17 @@ console.log(`8. 8진수(${팔진수}) -> 10진수(${parseInt(팔진수, 8)})`); 
 
 // 9. 8진수 -> 16진수
 console.log(`9. 8진수(${팔진수}) -> 16진수(${parseInt(팔진수, 8).toString(16)})`); // 7d
+
+
+
+
+24. swap
+
+let arr = [1, 2, 3, 4];
+
+[arr[0], arr[1]] = [arr[1], arr[0]];
+
+console.log(arr);
 
 
 ```
